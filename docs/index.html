@@ -43,6 +43,8 @@
   .chips button i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
   .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .85rem; color: var(--muted); }
   .legend span::before { content: ""; display: inline-block; width: 22px; height: 0; border-top: 4px solid var(--c); margin-right: 6px; vertical-align: middle; }
+  .legend span.ford-key::before { display: none; }
+  .legend span.ford-key { color: #1f6fb2; font-weight: 600; }
   .legend span.dash::before { border-top-style: dashed; border-top-width: 3px; }
   .timeline { list-style: none; margin: 0; padding: 0; }
   .timeline li { display: grid; grid-template-columns: 62px 1fr; gap: 10px; padding: 6px 0; border-top: 1px dashed var(--line); }
@@ -100,7 +102,7 @@
   <div id="map" role="region" aria-label="Trip map"></div>
   <div class="legend" style="margin-top:8px">
     <span style="--c:var(--d1)">Day 1</span><span style="--c:var(--d2)">Day 2</span><span style="--c:var(--d3)">Day 3</span><span style="--c:var(--d4)">Day 4</span><span style="--c:var(--d5)">Day 5</span>
-    <span class="dash" style="--c:var(--car)">Our cars</span><span class="dash" style="--c:var(--merv)">Merv's van</span>
+    <span class="ford-key">≈ River crossing (tap for its river level)</span><span class="dash" style="--c:var(--car)">Our cars</span><span class="dash" style="--c:var(--merv)">Merv's van</span>
   </div>
   <p class="muted">Tracks are routed along OpenStreetMap paths, so treat them as a guide and navigate by the poles, markers and a paper map. No phone coverage on the track: download the GPX or an offline map before leaving.</p>
   <a class="btn" href="kaimanawa-kaweka-2026.gpx" download>Download GPX (all 5 days)</a>
@@ -155,7 +157,7 @@
       <li><span class="pill">open</span> <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-stay/stay-in-a-hut/booking-and-paying/backcountry-hut-tickets/">Hut passes</a>: Tom N to buy for everyone, 2 nights. $15 per adult and $7.50 per youth (5 to 17) per night.</li>
       <li><span class="pill">open</span> Wellington crew: drive up Friday night or leave at 3:30 am Saturday?</li>
       <li><span class="pill">open</span> Tell Kate the expected finish: Makahu Saddle around 13:30 to 15:00 on Wed 16 Dec.</li>
-      <li><span class="pill">open</span> Check the forecast and river levels in the last few days: <a href="https://flowrate.co.nz/">FlowRate</a> for the Mohaka (Poronui Station) and Ngaruroro (Kuripapango), where over 20 cumecs is too high; and wind on the Kaweka tops.</li>
+      <li><span class="pill">open</span> Check the forecast and river levels in the last few days: FlowRate for the <a href="https://flowrate.co.nz/river/mohaka-river/poronui-station">Mohaka at Poronui Station</a> and the <a href="https://flowrate.co.nz/river/ngaruroro-river/kuripapango">Ngaruroro at Kuripapango</a>, where over 20 cumecs is too high; and wind on the Kaweka tops.</li>
       <li><span class="pill ok">in hand</span> Venison Tops Hut water tap is broken: DOC (called 28 Nov) has a crew due to fix it on 14 Dec. Fallback: lift the tank lid and reach in.</li>
     </ul>
     <h3 style="margin-top:12px">Gear to sort</h3>
@@ -175,7 +177,7 @@
       <li><b>No phone coverage</b> for most of the trip. Carry a PLB, and leave the route and dates with someone at home.</li>
       <li><b>Poronui Station</b> is private land: walkers only, no hunting, no mountain bikes; stay on the poled route.</li>
       <li><b>River crossings</b>: Oamaru/Kaipō on day 1, side streams on day 2, the Ngaruroro just past Boyd Hut at the end of day 2 (usually below knee deep, floods quickly after rain), repeated Ngaawapurua crossings on day 3. If a river is up, wait; don't cross.</li>
-      <li><b>River levels</b>: watch <a href="https://flowrate.co.nz/">FlowRate</a> in the days before, for the <b>Mohaka at Poronui Station</b> and the <b>Ngaruroro at Kuripapango</b>. Rule of thumb: <b>over 20 cumecs is too high</b>. For comparison, on 28 Nov they were 2.9 and 7.5.</li>
+      <li><b>River levels</b>: watch FlowRate in the days before: <a href="https://flowrate.co.nz/river/mohaka-river/poronui-station"><b>Mohaka at Poronui Station</b></a> (day 1) and <a href="https://flowrate.co.nz/river/ngaruroro-river/kuripapango"><b>Ngaruroro at Kuripapango</b></a> (days 2 to 4). The crossings are marked ≈ on the map. Rule of thumb: <b>over 20 cumecs is too high</b>. For comparison, on 28 Nov they were 2.9 and 7.5.</li>
       <li><b>Kaweka tops</b> (days 4 and 5) are exposed above the bushline. Don't cross in strong wind or poor visibility; huts at Venison Tops, Mangaturutu and Ballard are nearby for shelter.</li>
       <li>Hunters use these huts; wear something bright.</li>
     </ul>
@@ -290,14 +292,14 @@ groups.drive = L.featureGroup([
 ]).addTo(map);
 
 const icon = (kind) => {
-  const m = { start: ["▶", "#c8323f"], car: ["P", "#3d3d3d"], camp: ["⛺", "#24412f"], hut: ["⌂", "#8a6d3b"], peak: ["▲", "#7048a8"], town: ["●", "#3d3d3d"] }[kind];
+  const m = { start: ["▶", "#c8323f"], car: ["P", "#3d3d3d"], camp: ["⛺", "#24412f"], hut: ["⌂", "#8a6d3b"], peak: ["▲", "#7048a8"], town: ["●", "#3d3d3d"], ford: ["≈", "#1f6fb2"] }[kind];
   return L.divIcon({ className: "", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -12],
     html: `<div style="width:26px;height:26px;border-radius:50%;background:${m[1]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)">${m[0]}</div>` });
 };
 const markers = L.featureGroup().addTo(map);
 T.points.forEach(p => {
   const m = L.marker([p.lat, p.lon], { icon: icon(p.kind), title: p.name })
-    .bindPopup(`<b>${p.name}</b><br>${p.note}` + (p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">DOC page</a>` : "")).addTo(markers);
+    .bindPopup(`<b>${p.name}</b><br>${p.note}` + (p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">${p.link || "DOC page"}</a>` : "")).addTo(markers);
   if (p.id === "napier" || p.id === "taupo") m.bindTooltip(p.name, { permanent: true, direction: "right", offset: [12, 0], className: "town-label" });
 });
 const townLL = T.points.filter(p => p.id === "napier" || p.id === "taupo").map(p => [p.lat, p.lon]);

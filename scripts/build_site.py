@@ -24,6 +24,10 @@ URLS = {
     "kawekaj": KAW + "/",
     "tepuke": KAW + "/things-to-do/huts/te-pukeohikarua-te-puke-hut/",
     "mangaturutu": KAW + "/things-to-do/huts/mangaturutu-hut/",
+    "ford_oamaru": "https://flowrate.co.nz/river/mohaka-river/poronui-station",
+    "ford_ngaruroro": "https://flowrate.co.nz/river/ngaruroro-river/kuripapango",
+    "ford_ngaawapurua": "https://flowrate.co.nz/river/ngaruroro-river/kuripapango",
+    "ford_harkness": "https://flowrate.co.nz/river/ngaruroro-river/kuripapango",
     "ballard": KAW + "/things-to-do/huts/ballard-hut/",
 }
 
@@ -39,6 +43,10 @@ POINTS = [
     ("camp1", "Camp 1: Oamaru River", -39.09318, 176.23712, "camp", "Night 1 (Sat 12 Dec). The best campsites, about an hour (3.5 km) past Oamaru Hut up the Oamaru River. Position approximate."),
     ("boyd", "Boyd Hut", -39.1545, 176.1694, "hut", "Day 2 passes here: serviced hut, 16 bunks, airstrip. The camp is about 45 min further on."),
     ("camp2", "Camp 2: Ngaruroro River", -39.17424, 176.17997, "camp", "Night 2 (Sun 13 Dec). A great spot on the Ngaruroro, about 45 min (2.6 km) past Boyd Hut, past the ford. Position approximate."),
+    ("ford_oamaru", "River crossing: Kaipō/Oamaru River", -39.0726, 176.2683, "ford", "Day 1, just before Oamaru Hut (position approximate). Fine at normal flow; don't cross if it's up. Nearest gauge: Mohaka at Poronui Station."),
+    ("ford_ngaruroro", "River crossing: Ngaruroro River", -39.1692, 176.1794, "ford", "End of day 2, about 2 km past Boyd Hut, with two smaller channels in the next km. Usually below knee deep; floods quickly after rain. If it's up, camp at Boyd Hut. Gauge downstream: Ngaruroro at Kuripapango."),
+    ("ford_ngaawapurua", "Stream crossings: Ngaawapurua Stream", -39.1958, 176.2296, "ford", "Day 3, the last 3 km into Harkness Hut: about 30 crossings through scrub. Easy at normal flow. No gauge on the stream; the Ngaruroro at Kuripapango shows how wet the catchment is."),
+    ("ford_harkness", "Stream crossings past Harkness Hut", -39.1954, 176.2430, "ford", "Start of day 4: five crossings in the first 600 m before the climb. Same stream system as day 3."),
     ("tussock", "Tussock Hut", -39.1656, 176.2153, "hut", "Lunch or morning-tea stop on day 3, at the top of the climb from the Ngaruroro."),
     ("harkness", "Harkness Hut", -39.1955, 176.2392, "camp", "Night 3 (Mon 14 Dec). Wood stove, rain tank, long drop."),
     ("venison", "Venison Tops Hut (Tira Lodge)", -39.2472, 176.3217, "camp", "Night 4 (Tue 15 Dec). On the edge of the Kaweka tops. DOC alert: broken water tap; a crew is due to fix it on 14 Dec. If it isn't fixed, take the tank lid off and reach in."),
@@ -49,7 +57,8 @@ POINTS = [
 ]
 
 data = {
-    "points": [dict(zip(["id", "name", "lat", "lon", "kind", "note"], p), url=URLS.get(p[0], "")) for p in POINTS],
+    "points": [dict(zip(["id", "name", "lat", "lon", "kind", "note"], p), url=URLS.get(p[0], ""),
+                    link="River level on FlowRate" if p[4] == "ford" else "DOC page") for p in POINTS],
     "walk": geo["walk"],
     "drive": geo["drive"],
 }
