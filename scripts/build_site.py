@@ -10,6 +10,23 @@ from xml.sax.saxutils import escape
 ROOT = Path(sys.argv[1])
 geo = json.load(open(ROOT / "data" / "trip_geo.json"))
 
+DOC = "https://www.doc.govt.nz/parks-and-recreation/places-to-go"
+KAI = DOC + "/central-north-island/places/kaimanawa-forest-park"
+KAW = DOC + "/hawkes-bay/places/kaweka-forest-park"
+URLS = {
+    "makahu": KAW + "/things-to-do/huts/makahu-saddle-hut/",
+    "poronui": KAI + "/things-to-do/tracks/boyd-oamaru-and-cascade-hut-tracks/",
+    "oamaru": KAI + "/things-to-do/huts/oamaru-hut/",
+    "boyd": KAI + "/things-to-do/huts/boyd-hut/",
+    "tussock": KAW + "/things-to-do/huts/tussock-hut/",
+    "harkness": KAW + "/things-to-do/huts/harkness-hut/",
+    "venison": KAW + "/things-to-do/huts/venison-tops-hut-tira-lodge/",
+    "kawekaj": KAW + "/",
+    "tepuke": KAW + "/things-to-do/huts/te-pukeohikarua-te-puke-hut/",
+    "mangaturutu": KAW + "/things-to-do/huts/mangaturutu-hut/",
+    "ballard": KAW + "/things-to-do/huts/ballard-hut/",
+}
+
 POINTS = [
     # id, name, lat, lon, kind, note
     ("seatoun", "Seatoun (Car 1 leaves)", -41.3260, 174.8320, "town", "Tom K, Henry, Jonathan and Gils"),
@@ -22,13 +39,13 @@ POINTS = [
     ("harkness", "Harkness Hut", -39.1955, 176.2392, "camp", "Night 3 (Mon 14 Dec). Wood stove, rain tank, long drop."),
     ("venison", "Venison Tops Hut (Tira Lodge)", -39.2472, 176.3217, "camp", "Night 4 (Tue 15 Dec). On the edge of the Kaweka tops."),
     ("kawekaj", "Kaweka J, 1724 m", -39.2762, 176.3819, "peak", "Highest point of the trip; memorial cairn. Exposed tops."),
-    ("tepuke", "Te Pukeohikarua (Te Puke) Hut", -39.1935, 176.2766, "hut", "Other hut nearby (shelter option)."),
+    ("tepuke", "Te Pukeohikarua (Te Puke) Hut", -39.1935, 176.2766, "hut", "Day 4 passes here after about 4 km: a good first break."),
     ("mangaturutu", "Mangaturutu Hut", -39.2192, 176.3299, "hut", "Other hut nearby (shelter option)."),
     ("ballard", "Ballard Hut", -39.2380, 176.3698, "hut", "Other hut nearby (shelter option)."),
 ]
 
 data = {
-    "points": [dict(zip(["id", "name", "lat", "lon", "kind", "note"], p)) for p in POINTS],
+    "points": [dict(zip(["id", "name", "lat", "lon", "kind", "note"], p), url=URLS.get(p[0], "")) for p in POINTS],
     "walk": geo["walk"],
     "drive": geo["drive"],
 }

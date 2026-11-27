@@ -151,7 +151,7 @@
     <ul class="todo">
       <li><span class="pill">urgent</span> Choose the shuttle (Merv or the rental) and let Merv know.</li>
       <li><span class="pill">open</span> Confirm the 10:00 pickup at Makahu Saddle with the driver.</li>
-      <li><span class="pill">open</span> Hut passes: Tom N to buy for everyone, 2 nights. $15 per adult and $7.50 per youth (5 to 17) per night.</li>
+      <li><span class="pill">open</span> <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-stay/stay-in-a-hut/booking-and-paying/backcountry-hut-tickets/">Hut passes</a>: Tom N to buy for everyone, 2 nights. $15 per adult and $7.50 per youth (5 to 17) per night.</li>
       <li><span class="pill">open</span> Wellington crew: drive up Friday night or leave at 3:30 am Saturday?</li>
       <li><span class="pill">open</span> Tell Kate the expected finish: Makahu Saddle around 13:30 to 15:00 on Wed 16 Dec.</li>
       <li><span class="pill">open</span> Check the forecast and river levels in the last few days (Mohaka, Oamaru, Ngaruroro crossings, and wind on the Kaweka tops).</li>
@@ -170,10 +170,17 @@
       <li><b>Kaweka tops</b> (days 4 and 5) are exposed above the bushline. Don't cross in strong wind or poor visibility; huts at Venison Tops, Mangaturutu and Ballard are nearby for shelter.</li>
       <li>Hunters use these huts; wear something bright.</li>
     </ul>
+    <h3 style="margin-top:12px">DOC pages</h3>
+    <ul>
+      <li>Parks: <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/">Kaimanawa Forest Park</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/">Kaweka Forest Park</a></li>
+      <li>Track: <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/things-to-do/tracks/boyd-oamaru-and-cascade-hut-tracks/">Boyd, Oamaru and Cascade Hut tracks</a> (includes the Poronui access rules)</li>
+      <li>Camp huts: <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/things-to-do/huts/oamaru-hut/">Oamaru Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/things-to-do/huts/boyd-hut/">Boyd Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/harkness-hut/">Harkness Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/venison-tops-hut-tira-lodge/">Venison Tops Hut (Tira Lodge)</a></li>
+      <li>Huts on the way: <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/tussock-hut/">Tussock Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/te-pukeohikarua-te-puke-hut/">Te Puke Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/dominie-hut/">Dominie Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/makahu-saddle-hut/">Makahu Saddle Hut</a></li>
+      <li>Shelter options off the route: <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/mangaturutu-hut/">Mangaturutu Hut</a> · <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/ballard-hut/">Ballard Hut</a></li>
+      <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-stay/stay-in-a-hut/booking-and-paying/backcountry-hut-tickets/">Backcountry hut tickets</a></li>
+    </ul>
+    <h3>Weather</h3>
     <p>
-      <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/things-to-do/tracks/boyd-oamaru-and-cascade-hut-tracks/">DOC: Boyd, Oamaru and Cascade Hut tracks</a> ·
-      <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/harkness-hut/">DOC: Harkness Hut</a> ·
-      <a href="https://doc.govt.nz/link/b76dcffc07b442d6bf248547377bc4e2">DOC: Tussock Hut</a> ·
       <a href="https://www.windy.com/-39.276/176.382?-39.276,176.382,10">Windy forecast for Kaweka J</a> ·
       <a href="https://www.metservice.com/rural/regions/hawkes-bay">MetService rural forecast, Hawke's Bay</a> ·
       <a href="https://www.metvuw.com/forecast/forecast1.php?type=rain&amp;region=nzni&amp;tim=162">MetVUW rain map</a>
@@ -195,24 +202,39 @@
 <script>
 const T = window.TRIP;
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const KAI = "https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park", KAW = "https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park";
+const DOCL = {
+  track: ["Boyd, Oamaru and Cascade Hut tracks", KAI + "/things-to-do/tracks/boyd-oamaru-and-cascade-hut-tracks/"],
+  oamaru: ["Oamaru Hut", KAI + "/things-to-do/huts/oamaru-hut/"],
+  boyd: ["Boyd Hut", KAI + "/things-to-do/huts/boyd-hut/"],
+  tussock: ["Tussock Hut", KAW + "/things-to-do/huts/tussock-hut/"],
+  harkness: ["Harkness Hut", KAW + "/things-to-do/huts/harkness-hut/"],
+  tepuke: ["Te Puke Hut", KAW + "/things-to-do/huts/te-pukeohikarua-te-puke-hut/"],
+  venison: ["Venison Tops Hut (Tira Lodge)", KAW + "/things-to-do/huts/venison-tops-hut-tira-lodge/"],
+  dominie: ["Dominie Hut (Makahu Spur)", KAW + "/things-to-do/huts/dominie-hut/"],
+  makahu: ["Makahu Saddle Hut", KAW + "/things-to-do/huts/makahu-saddle-hut/"],
+  kai: ["Kaimanawa Forest Park", KAI + "/"],
+  kaw: ["Kaweka Forest Park", KAW + "/"],
+};
+const docLinks = ids => ids.map(i => `<a href="${DOCL[i][1]}">${DOCL[i][0]}</a>`).join(" · ");
 const DAYS = [
-  { id: "d1", n: 1, date: "Sat 12 Dec", title: "Taharua road end → Oamaru Hut", color: "--d1", est: "4–4.5 h", doc: "DOC: 4 h, 12 km",
+  { id: "d1", n: 1, date: "Sat 12 Dec", title: "Taharua road end → Oamaru Hut", color: "--d1", docs: ["track", "oamaru", "kai"], est: "4–4.5 h", doc: "DOC: 4 h, 12 km",
     plan: [["13:15", "Start walking from the Helisika hangar car park"], ["17:30", "Camp on the grassy flats below Oamaru Hut"]],
     text: "Flat and easy. A poled route across Poronui Station farmland and gravel tracks to the Mohaka River, then a newer track to Oamaru Hut with one crossing of the Kaipō/Oamaru River just before the hut. Lots of side tracks on the station: follow the DOC poles.",
     warn: "River crossing just before the hut: fine at normal flow, don't cross if it's up." },
-  { id: "d2", n: 2, date: "Sun 13 Dec", title: "Oamaru Hut → Boyd Hut", color: "--d2", est: "5–6 h", doc: "DOC: 4–6 h, 16 km",
+  { id: "d2", n: 2, date: "Sun 13 Dec", title: "Oamaru Hut → Boyd Hut", color: "--d2", docs: ["oamaru", "boyd", "track"], est: "5–6 h", doc: "DOC: 4–6 h, 16 km",
     plan: [["08:30", "Pack up and leave Oamaru Hut"], ["11:30", "Lunch on the Oamaru flats"], ["14:00", "Arrive at Boyd Hut, set up camp"]],
     text: "Up the Oamaru valley on poled river flats, then over the low saddle into the Ngaruroro headwaters to Boyd Hut (16 bunks, airstrip). Grass on the flats can be head high, which makes the poles hard to spot.",
     warn: "Several side streams; elevation numbers for this day come from a coarse terrain model and are approximate." },
-  { id: "d3", n: 3, date: "Mon 14 Dec", title: "Boyd Hut → Tussock Hut → Harkness Hut", color: "--d3", est: "5–6 h", doc: "DOC: Boyd to Tussock 3 h, Tussock to Harkness 2–3 h",
+  { id: "d3", n: 3, date: "Mon 14 Dec", title: "Boyd Hut → Tussock Hut → Harkness Hut", color: "--d3", docs: ["boyd", "tussock", "harkness", "kaw"], est: "5–6 h", doc: "DOC: Boyd to Tussock 3 h, Tussock to Harkness 2–3 h",
     plan: [["08:30", "Leave Boyd Hut; ford the Ngaruroro River"], ["11:30", "Lunch at Tussock Hut"], ["14:00", "Arrive at Harkness Hut, set up camp"]],
     text: "Ford the Ngaruroro early, climb about 300 m onto tussock country to Tussock Hut, then down the Ngaawapurua Stream to Harkness Hut. That stretch crosses the stream many times through scrub; gaiters help.",
     warn: "Ngaruroro ford: usually below knee deep, but it floods quickly after rain." },
-  { id: "d4", n: 4, date: "Tue 15 Dec", title: "Harkness Hut → Venison Tops Hut", color: "--d4", est: "6–8 h", doc: "DOC gives up to 8 h between Harkness and Tira Lodge",
+  { id: "d4", n: 4, date: "Tue 15 Dec", title: "Harkness Hut → Venison Tops Hut", color: "--d4", docs: ["harkness", "tepuke", "venison"], est: "6–8 h", doc: "DOC gives up to 8 h between Harkness and Tira Lodge",
     plan: [["07:30", "Early start from Harkness Hut"], ["11:30", "Lunch on the climb"], ["15:00", "Arrive at Venison Tops Hut (Tira Lodge), set up camp"]],
-    text: "The big climbing day: about 1,000 m up from the Ngaawapurua valley to the edge of the Kaweka tops at Venison Tops. Start early and keep the snacks coming.",
+    text: "The big climbing day: about 1,000 m up from the Ngaawapurua valley, past Te Pukeohikarua (Te Puke) Hut after about 4 km (DOC: 2.5–3 h from Harkness), then over the tops to Venison Tops Hut. Start early and keep the snacks coming.",
     warn: "Longest climb of the trip. Last few hours are on open tops: check the weather before committing." },
-  { id: "d5", n: 5, date: "Wed 16 Dec", title: "Venison Tops → Kaweka J → Makahu Saddle", color: "--d5", est: "6–7 h", doc: "DOC: Makahu Saddle to Tira Lodge 6.5–8 h (the other way, uphill)",
+  { id: "d5", n: 5, date: "Wed 16 Dec", title: "Venison Tops → Kaweka J → Makahu Saddle", color: "--d5", docs: ["venison", "dominie", "makahu", "kaw"], est: "6–7 h", doc: "DOC: Makahu Saddle to Tira Lodge 6.5–8 h (the other way, uphill)",
     plan: [["07:30", "Leave Venison Tops Hut"], ["12:00", "Kaweka J (1724 m), memorial cairn, lunch and photos"], ["14:00", "Down Makahu Spur (about 700 m in 3.5 km) to the car park: Kate and the cars"], ["14:30", "Drive home; Wellington around 20:30 to 21:30"]],
     text: "Along the Kaweka tops past North Kaweka to Kaweka J, the highest point in the range, then a long steep descent of about 1,200 m down Makahu Spur past Dominie Bivvy to Makahu Saddle.",
     warn: "Most of the morning, about 10 km, is on exposed tops. No crossing in strong wind or cloud: wait at the hut. The descent is steep on tired knees; poles help." },
@@ -264,7 +286,7 @@ const icon = (kind) => {
 };
 const markers = L.featureGroup().addTo(map);
 T.points.forEach(p => L.marker([p.lat, p.lon], { icon: icon(p.kind), title: p.name })
-  .bindPopup(`<b>${p.name}</b><br>${p.note}`).addTo(markers));
+  .bindPopup(`<b>${p.name}</b><br>${p.note}` + (p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">DOC page</a>` : "")).addTo(markers));
 
 const walkBounds = L.featureGroup(DAYS.map(d => groups[d.id])).getBounds().pad(0.05);
 map.fitBounds(walkBounds);
@@ -294,7 +316,7 @@ const pre = [["03:30", "Car 1 leaves Seatoun; Car 2 leaves Wellington (skip if y
 let html = "";
 DAYS.forEach(d => {
   const rows = (d.n === 1 ? pre : []).concat(d.plan);
-  html += `<h3 style="margin-top:${d.n === 1 ? 0 : 14}px"><span class="daytag" style="background:${css(d.color)}">Day ${d.n}</span>${d.date}</h3><ul class="timeline">` +
+  html += `<h3 style="margin-top:${d.n === 1 ? 0 : 14}px"><span class="daytag" style="background:${css(d.color)}">Day ${d.n}</span>${d.date}</h3><p class="muted" style="margin:4px 0 0">DOC: ${docLinks(d.docs)}</p><ul class="timeline">` +
     rows.map(([t, s]) => `<li><time>${t}</time><div>${s}</div></li>`).join("") + "</ul>";
 });
 sched.innerHTML = html;
@@ -327,6 +349,7 @@ document.getElementById("daycards").innerHTML = DAYS.map(d => {
     ${profile(w.coords, c)}
     <p>${d.text}</p>
     <p class="muted">${d.doc}. Highest point ${w.max} m.</p>
+    <p class="muted">DOC pages: ${docLinks(d.docs)}</p>
     <div class="warn">${d.warn}</div>
   </div>`;
 }).join("");
