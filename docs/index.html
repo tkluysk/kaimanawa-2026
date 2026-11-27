@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#24412f">
+<title>Kaimanawa to Kaweka traverse · 12–16 Dec 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<style>
+  :root {
+    --ink: #1d2a22; --muted: #5b6b61; --bg: #f6f4ee; --card: #fff; --line: #ddd8cc;
+    --accent: #24412f; --warn: #a4471b; --warn-bg: #fbeee5;
+    --d1: #c8323f; --d2: #e08a1e; --d3: #188a7c; --d4: #2a6fb0; --d5: #7048a8;
+    --car: #3d3d3d; --merv: #c0128f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 52px; }
+  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  header.hero { background: linear-gradient(160deg, #24412f, #3f6b4c); color: #fff; padding: 22px 16px 18px; }
+  header.hero h1 { margin: 0 0 4px; font-size: 1.55rem; line-height: 1.2; }
+  header.hero p { margin: 0; opacity: .92; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; }
+  .facts div { background: rgba(255,255,255,.13); border-radius: 10px; padding: 8px; text-align: center; }
+  .facts b { display: block; font-size: 1.2rem; }
+  .facts span { font-size: .78rem; opacity: .9; }
+  nav { position: sticky; top: 0; z-index: 1000; background: var(--accent); display: flex; overflow-x: auto; gap: 2px; padding: 6px 8px; scrollbar-width: none; }
+  nav a { color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 999px; white-space: nowrap; font-size: .92rem; }
+  nav a:hover, nav a:focus { background: rgba(255,255,255,.18); }
+  main { max-width: 980px; margin: 0 auto; padding: 0 12px 40px; }
+  section { margin-top: 26px; }
+  h2 { font-size: 1.3rem; margin: 0 0 10px; }
+  h3 { margin: 0; font-size: 1.08rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+  .muted { color: var(--muted); font-size: .9rem; }
+  #map { height: 62vh; min-height: 360px; border-radius: 12px; border: 1px solid var(--line); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .chips button { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: .88rem; cursor: pointer; }
+  .chips button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .chips button i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .85rem; color: var(--muted); }
+  .legend span::before { content: ""; display: inline-block; width: 22px; height: 0; border-top: 4px solid var(--c); margin-right: 6px; vertical-align: middle; }
+  .legend span.dash::before { border-top-style: dashed; border-top-width: 3px; }
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 62px 1fr; gap: 10px; padding: 6px 0; border-top: 1px dashed var(--line); }
+  .timeline li:first-child { border-top: 0; }
+  .timeline time { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--accent); }
+  .daytag { display: inline-block; color: #fff; border-radius: 6px; padding: 1px 8px; font-size: .8rem; font-weight: 600; margin-right: 6px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 10px 0; }
+  .stats div { background: var(--bg); border-radius: 8px; padding: 6px; text-align: center; }
+  .stats b { display: block; font-size: 1.05rem; }
+  .stats span { font-size: .75rem; color: var(--muted); }
+  svg.profile { width: 100%; height: 120px; display: block; }
+  .warn { background: var(--warn-bg); border-left: 4px solid var(--warn); padding: 8px 10px; border-radius: 6px; margin: 8px 0 0; font-size: .93rem; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+  th, td { text-align: left; padding: 7px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .82rem; border-top: 0; }
+  .todo li { margin: 4px 0; }
+  .pill { font-size: .75rem; padding: 1px 7px; border-radius: 999px; background: #fff3c4; color: #6b5200; font-weight: 600; white-space: nowrap; }
+  .pill.ok { background: #dff3e4; color: #1f6b37; }
+  a { color: #1f5f8b; }
+  .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: .92rem; margin: 4px 6px 0 0; }
+  footer { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; color: var(--muted); font-size: .82rem; }
+  img.dream { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+  .leaflet-popup-content { font-size: .92rem; }
+  @media (max-width: 560px) {
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    header.hero h1 { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Kaimanawa to Kaweka traverse</h1>
+  <p>Sat 12 to Wed 16 December 2026 · Taharua road end (Poronui) to Makahu Saddle · 5 days, 4 nights in tents</p>
+  <div class="facts">
+    <div><b id="f-km">67 km</b><span>walking</span></div>
+    <div><b id="f-up">2.7 km</b><span>total climb</span></div>
+    <div><b>1724 m</b><span>Kaweka J, high point</span></div>
+    <div><b>8</b><span>walkers</span></div>
+  </div>
+</header>
+<nav>
+  <a href="#map-sec">Map</a><a href="#schedule">Schedule</a><a href="#days">Day by day</a><a href="#transport">Transport</a><a href="#todo">To sort</a><a href="#notes">Safety &amp; links</a>
+</nav>
+<main>
+
+<section id="map-sec">
+  <h2>Map</h2>
+  <div class="chips" id="chips"></div>
+  <div id="map" role="region" aria-label="Trip map"></div>
+  <div class="legend" style="margin-top:8px">
+    <span style="--c:var(--d1)">Day 1</span><span style="--c:var(--d2)">Day 2</span><span style="--c:var(--d3)">Day 3</span><span style="--c:var(--d4)">Day 4</span><span style="--c:var(--d5)">Day 5</span>
+    <span class="dash" style="--c:var(--car)">Our cars</span><span class="dash" style="--c:var(--merv)">Merv's van</span>
+  </div>
+  <p class="muted">Tracks are routed along OpenStreetMap paths, so treat them as a guide and navigate by the poles, markers and a paper map. No phone coverage on the track: download the GPX or an offline map before leaving.</p>
+  <a class="btn" href="kaimanawa-kaweka-2026.gpx" download>Download GPX (all 5 days)</a>
+</section>
+
+<section id="schedule">
+  <h2>Schedule</h2>
+  <div class="card">
+    <h3>Fri 11 Dec · optional early start</h3>
+    <ul class="timeline">
+      <li><time>evening</time><div>The Wellington crew can drive up the night before and sleep in Napier or Hastings. That turns Saturday into a relaxed 1 h 15 drive (69 km) from Napier to Makahu Saddle instead of a 3:30 am start. <span class="pill">to decide</span></div></li>
+    </ul>
+  </div>
+  <div class="card" id="sched"></div>
+</section>
+
+<section id="days">
+  <h2>Day by day</h2>
+  <p class="muted">Times are estimates for a group with full packs and kids: about 3.5 km/h on the flat plus an hour per 500 m of climb, checked against DOC track times where DOC gives them. Add breaks.</p>
+  <div id="daycards"></div>
+</section>
+
+<section id="transport">
+  <h2>Transport</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Leg</th><th>Who</th><th>Distance</th><th>Driving time</th></tr></thead>
+      <tbody>
+        <tr><td><b>Car 1</b>: Seatoun → Makahu Saddle<br><span class="muted">Sat 12 Dec, early</span></td><td>Tom K, Henry, Jonathan, Gils</td><td id="t-c1">375 km</td><td>about 5 h 20 without stops; allow 6 h</td></tr>
+        <tr><td><b>Car 2</b>: Wellington → Palmerston North → Makahu Saddle</td><td>Tom N, Kahu, Tane; Leo joins in Palmy</td><td id="t-c2">379 km</td><td>about 5 h 30 without stops; allow 6 h</td></tr>
+        <tr><td><b>Merv's van</b>: Makahu Saddle → Taharua road end (Poronui)<br><span class="muted">Sat 12 Dec, leaves 10:00</span></td><td>All 8, with packs</td><td id="t-m">169 km</td><td>about 3 h 15, via Napier and the Napier–Taupō road; at the road end by about 13:15</td></tr>
+        <tr><td><b>Home</b>: Makahu Saddle → Palmerston North → Wellington<br><span class="muted">Wed 16 Dec, afternoon</span></td><td>Both cars, plus Kate</td><td>375 km</td><td>about 5 h 30 without stops; home around 20:30 to 21:30</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Driving times are from OSRM road routing with no traffic or stops; the last stretch to Makahu Saddle is slow, winding back-country road.</p>
+  </div>
+  <div class="card">
+    <h3>Shuttle options <span class="pill">to decide</span></h3>
+    <ul>
+      <li><b>Merv</b>, big van, $137 per person (about $1,096 for 8). Tom N is ready to book; pickup 10:00 on Sat 12 Dec at Makahu Saddle.</li>
+      <li><b>Jonathan's option</b>: 11-seater rental for $180, still needs a driver (a friend in Hastings) to take us from Makahu Saddle to Poronui. Jonathan has also asked Mates Travel (Hawke's Bay) for an all-in quote.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="todo">
+  <h2>To sort</h2>
+  <div class="card">
+    <ul class="todo">
+      <li><span class="pill">urgent</span> Choose the shuttle (Merv or the rental) and let Merv know.</li>
+      <li><span class="pill">open</span> Confirm the 10:00 pickup at Makahu Saddle with the driver.</li>
+      <li><span class="pill">open</span> Hut passes: Tom N to buy for everyone, 2 nights. $15 per adult and $7.50 per youth (5 to 17) per night.</li>
+      <li><span class="pill">open</span> Wellington crew: drive up Friday night or leave at 3:30 am Saturday?</li>
+      <li><span class="pill">open</span> Tell Kate the expected finish: Makahu Saddle around 13:30 to 15:00 on Wed 16 Dec.</li>
+      <li><span class="pill">open</span> Check the forecast and river levels in the last few days (Mohaka, Oamaru, Ngaruroro crossings, and wind on the Kaweka tops).</li>
+      <li><span class="pill">open</span> Gear: tents, stoves and fuel for 4 nights, PLB, paper maps, gaiters for the Ngaawapurua scrub.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="notes">
+  <h2>Safety &amp; links</h2>
+  <div class="card">
+    <ul>
+      <li><b>No phone coverage</b> for most of the trip. Carry a PLB, and leave the route and dates with someone at home.</li>
+      <li><b>Poronui Station</b> is private land: walkers only, no hunting, no mountain bikes; stay on the poled route.</li>
+      <li><b>River crossings</b>: Oamaru/Kaipō on day 1, side streams on day 2, the Ngaruroro after Boyd Hut on day 3 (usually below knee deep, floods quickly after rain), repeated Ngaawapurua crossings on day 3. If a river is up, wait; don't cross.</li>
+      <li><b>Kaweka tops</b> (days 4 and 5) are exposed above the bushline. Don't cross in strong wind or poor visibility; huts at Venison Tops, Mangaturutu and Ballard are nearby for shelter.</li>
+      <li>Hunters use these huts; wear something bright.</li>
+    </ul>
+    <p>
+      <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/central-north-island/places/kaimanawa-forest-park/things-to-do/tracks/boyd-oamaru-and-cascade-hut-tracks/">DOC: Boyd, Oamaru and Cascade Hut tracks</a> ·
+      <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/hawkes-bay/places/kaweka-forest-park/things-to-do/huts/harkness-hut/">DOC: Harkness Hut</a> ·
+      <a href="https://doc.govt.nz/link/b76dcffc07b442d6bf248547377bc4e2">DOC: Tussock Hut</a> ·
+      <a href="https://www.windy.com/-39.276/176.382?-39.276,176.382,10">Windy forecast for Kaweka J</a> ·
+      <a href="https://www.metservice.com/rural/regions/hawkes-bay">MetService rural forecast, Hawke's Bay</a> ·
+      <a href="https://www.metvuw.com/forecast/forecast1.php?type=rain&amp;region=nzni&amp;tim=162">MetVUW rain map</a>
+    </p>
+  </div>
+  <div class="card">
+    <h3>The dream map</h3>
+    <p class="muted">The illustration that started it. It isn't to scale; the real route is on the map above.</p>
+    <img class="dream" src="dream-map.jpg" alt="Illustrated map of the five-day Kaimanawa to Kaweka traverse" loading="lazy">
+  </div>
+</section>
+</main>
+<footer>
+  Map data © OpenStreetMap contributors, OpenTopoMap (CC-BY-SA), Esri imagery. Track geometry from OpenStreetMap via BRouter; elevations from BRouter and Open-Meteo. Times are estimates; check DOC for current track conditions.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="trip-data.js"></script>
+<script>
+const T = window.TRIP;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const DAYS = [
+  { id: "d1", n: 1, date: "Sat 12 Dec", title: "Taharua road end → Oamaru Hut", color: "--d1", est: "4–4.5 h", doc: "DOC: 4 h, 12 km",
+    plan: [["13:15", "Start walking from the Helisika hangar car park"], ["17:30", "Camp on the grassy flats below Oamaru Hut"]],
+    text: "Flat and easy. A poled route across Poronui Station farmland and gravel tracks to the Mohaka River, then a newer track to Oamaru Hut with one crossing of the Kaipō/Oamaru River just before the hut. Lots of side tracks on the station: follow the DOC poles.",
+    warn: "River crossing just before the hut: fine at normal flow, don't cross if it's up." },
+  { id: "d2", n: 2, date: "Sun 13 Dec", title: "Oamaru Hut → Boyd Hut", color: "--d2", est: "5–6 h", doc: "DOC: 4–6 h, 16 km",
+    plan: [["08:30", "Pack up and leave Oamaru Hut"], ["11:30", "Lunch on the Oamaru flats"], ["14:00", "Arrive at Boyd Hut, set up camp"]],
+    text: "Up the Oamaru valley on poled river flats, then over the low saddle into the Ngaruroro headwaters to Boyd Hut (16 bunks, airstrip). Grass on the flats can be head high, which makes the poles hard to spot.",
+    warn: "Several side streams; elevation numbers for this day come from a coarse terrain model and are approximate." },
+  { id: "d3", n: 3, date: "Mon 14 Dec", title: "Boyd Hut → Tussock Hut → Harkness Hut", color: "--d3", est: "5–6 h", doc: "DOC: Boyd to Tussock 3 h, Tussock to Harkness 2–3 h",
+    plan: [["08:30", "Leave Boyd Hut; ford the Ngaruroro River"], ["11:30", "Lunch at Tussock Hut"], ["14:00", "Arrive at Harkness Hut, set up camp"]],
+    text: "Ford the Ngaruroro early, climb about 300 m onto tussock country to Tussock Hut, then down the Ngaawapurua Stream to Harkness Hut. That stretch crosses the stream many times through scrub; gaiters help.",
+    warn: "Ngaruroro ford: usually below knee deep, but it floods quickly after rain." },
+  { id: "d4", n: 4, date: "Tue 15 Dec", title: "Harkness Hut → Venison Tops Hut", color: "--d4", est: "6–8 h", doc: "DOC gives up to 8 h between Harkness and Tira Lodge",
+    plan: [["07:30", "Early start from Harkness Hut"], ["11:30", "Lunch on the climb"], ["15:00", "Arrive at Venison Tops Hut (Tira Lodge), set up camp"]],
+    text: "The big climbing day: about 1,000 m up from the Ngaawapurua valley to the edge of the Kaweka tops at Venison Tops. Start early and keep the snacks coming.",
+    warn: "Longest climb of the trip. Last few hours are on open tops: check the weather before committing." },
+  { id: "d5", n: 5, date: "Wed 16 Dec", title: "Venison Tops → Kaweka J → Makahu Saddle", color: "--d5", est: "6–7 h", doc: "DOC: Makahu Saddle to Tira Lodge 6.5–8 h (the other way, uphill)",
+    plan: [["07:30", "Leave Venison Tops Hut"], ["12:00", "Kaweka J (1724 m), memorial cairn, lunch and photos"], ["14:00", "Down Makahu Spur (about 700 m in 3.5 km) to the car park: Kate and the cars"], ["14:30", "Drive home; Wellington around 20:30 to 21:30"]],
+    text: "Along the Kaweka tops past North Kaweka to Kaweka J, the highest point in the range, then a long steep descent of about 1,200 m down Makahu Spur past Dominie Bivvy to Makahu Saddle.",
+    warn: "Most of the morning, about 10 km, is on exposed tops. No crossing in strong wind or cloud: wait at the hut. The descent is steep on tired knees; poles help." },
+];
+
+// ---- stats ----
+function cum(coords) {
+  const R = 6371, rad = Math.PI / 180; let d = 0; const out = [0];
+  for (let i = 1; i < coords.length; i++) {
+    const [lo1, la1] = coords[i - 1], [lo2, la2] = coords[i];
+    const h = Math.sin((la2 - la1) * rad / 2) ** 2 + Math.cos(la1 * rad) * Math.cos(la2 * rad) * Math.sin((lo2 - lo1) * rad / 2) ** 2;
+    d += 2 * R * Math.asin(Math.sqrt(h)); out.push(d);
+  }
+  return out;
+}
+let totKm = 0, totUp = 0;
+DAYS.forEach(d => { const w = T.walk[d.id]; totKm += w.km; totUp += w.up; });
+document.getElementById("f-km").textContent = Math.round(totKm) + " km";
+document.getElementById("f-up").textContent = (totUp / 1000).toFixed(1) + " km";
+
+// ---- map ----
+const map = L.map("map", { zoomControl: true, tap: true });
+const topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "© OpenStreetMap contributors, © OpenTopoMap (CC-BY-SA)" });
+const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap contributors" });
+const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "Imagery © Esri" });
+topo.addTo(map);
+L.control.layers({ "Topo": topo, "Street": osm, "Satellite": sat }, null, { position: "topright" }).addTo(map);
+L.control.scale({ imperial: false }).addTo(map);
+
+const groups = {};
+const ll = c => [c[1], c[0]];
+DAYS.forEach(d => {
+  const w = T.walk[d.id];
+  const line = L.polyline(w.coords.map(ll), { color: css(d.color), weight: 5, opacity: .9 })
+    .bindPopup(`<b>Day ${d.n} · ${d.date}</b><br>${d.title}<br>${w.km} km · ↑${w.up} m ↓${w.down} m · ${d.est}`);
+  groups[d.id] = L.featureGroup([line]).addTo(map);
+});
+const drv = (k, color, label) => L.polyline(T.drive[k].coords.map(ll), { color, weight: 4, opacity: .75, dashArray: "8 8" })
+  .bindPopup(`<b>${label}</b><br>${T.drive[k].km} km · about ${Math.floor(T.drive[k].min / 60)} h ${T.drive[k].min % 60} min driving`);
+groups.drive = L.featureGroup([
+  drv("seatoun_palmy_makahu", css("--car"), "Cars: Wellington → Palmerston North → Makahu Saddle"),
+  drv("makahu_poronui", css("--merv"), "Merv's van: Makahu Saddle → Poronui"),
+]).addTo(map);
+
+const icon = (kind) => {
+  const m = { start: ["▶", "#c8323f"], car: ["P", "#3d3d3d"], camp: ["⛺", "#24412f"], hut: ["⌂", "#8a6d3b"], peak: ["▲", "#7048a8"], town: ["●", "#3d3d3d"] }[kind];
+  return L.divIcon({ className: "", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -12],
+    html: `<div style="width:26px;height:26px;border-radius:50%;background:${m[1]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)">${m[0]}</div>` });
+};
+const markers = L.featureGroup().addTo(map);
+T.points.forEach(p => L.marker([p.lat, p.lon], { icon: icon(p.kind), title: p.name })
+  .bindPopup(`<b>${p.name}</b><br>${p.note}`).addTo(markers));
+
+const walkBounds = L.featureGroup(DAYS.map(d => groups[d.id])).getBounds().pad(0.05);
+map.fitBounds(walkBounds);
+
+// zoom chips
+const chips = document.getElementById("chips");
+const views = [["Walk", () => walkBounds, null], ["Whole trip", () => L.featureGroup([groups.drive, markers]).getBounds().pad(0.05), null]]
+  .concat(DAYS.map(d => [`Day ${d.n}`, () => groups[d.id].getBounds().pad(0.15), d.color]))
+  .concat([["Shuttle", () => groups.drive.getLayers()[1].getBounds().pad(0.1), "--merv"]]);
+views.forEach(([label, b, color], i) => {
+  const btn = document.createElement("button");
+  btn.innerHTML = (color ? `<i style="background:${css(color)}"></i>` : "") + label;
+  if (i === 0) btn.classList.add("on");
+  btn.onclick = () => { chips.querySelectorAll("button").forEach(x => x.classList.remove("on")); btn.classList.add("on"); map.fitBounds(b()); };
+  chips.appendChild(btn);
+});
+const loc = document.createElement("button");
+loc.textContent = "📍 Where am I";
+loc.onclick = () => map.locate({ setView: true, maxZoom: 15 });
+chips.appendChild(loc);
+map.on("locationfound", e => L.circleMarker(e.latlng, { radius: 8, color: "#1f5f8b", fillOpacity: .8 }).addTo(map).bindPopup("You are here").openPopup());
+map.on("locationerror", () => alert("Couldn't get your location."));
+
+// ---- schedule ----
+const sched = document.getElementById("sched");
+const pre = [["03:30", "Car 1 leaves Seatoun; Car 2 leaves Wellington (skip if you drove up on Friday)"], ["05:30", "Car 2 collects Leo in Palmerston North"], ["07:30", "Fuel and breakfast stop, Hastings or Napier"], ["09:30", "Both cars at Makahu Saddle car park; leave the cars here"], ["10:00", "Merv's van leaves for Poronui with all 8 of us"], ["13:00", "Arrive at the Taharua road end (Helisika hangar)"]];
+let html = "";
+DAYS.forEach(d => {
+  const rows = (d.n === 1 ? pre : []).concat(d.plan);
+  html += `<h3 style="margin-top:${d.n === 1 ? 0 : 14}px"><span class="daytag" style="background:${css(d.color)}">Day ${d.n}</span>${d.date}</h3><ul class="timeline">` +
+    rows.map(([t, s]) => `<li><time>${t}</time><div>${s}</div></li>`).join("") + "</ul>";
+});
+sched.innerHTML = html;
+
+// ---- day cards with elevation profile ----
+function profile(coords, color) {
+  const km = cum(coords), W = 600, H = 120, pad = 22;
+  const els = coords.map(c => c[2]); const lo = Math.floor(Math.min(...els) / 100) * 100, hi = Math.ceil(Math.max(...els) / 100) * 100;
+  const x = v => pad + (v / km[km.length - 1]) * (W - pad - 4), y = e => 6 + (1 - (e - lo) / (hi - lo || 1)) * (H - 26);
+  const pts = coords.map((c, i) => `${x(km[i]).toFixed(1)},${y(c[2]).toFixed(1)}`).join(" ");
+  let grid = "";
+  for (let e = lo; e <= hi; e += (hi - lo > 600 ? 200 : 100)) grid += `<line x1="${pad}" x2="${W}" y1="${y(e)}" y2="${y(e)}" stroke="#e6e1d6"/><text x="0" y="${y(e) + 4}" font-size="10" fill="#7a857e">${e}</text>`;
+  const kmMax = km[km.length - 1];
+  for (let k = 0; k <= kmMax; k += 2) grid += `<text x="${x(k) - 4}" y="${H - 4}" font-size="10" fill="#7a857e">${k}</text>`;
+  return `<svg class="profile" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Elevation profile">${grid}
+    <polygon points="${x(0)},${y(lo)} ${pts} ${x(kmMax)},${y(lo)}" fill="${color}" fill-opacity=".18"/>
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>
+    <div class="muted" style="font-size:.75rem;text-align:right">km along the day · height in m</div>`;
+}
+document.getElementById("daycards").innerHTML = DAYS.map(d => {
+  const w = T.walk[d.id], c = css(d.color);
+  return `<div class="card" id="day${d.n}" style="border-top:5px solid ${c}">
+    <h3><span class="daytag" style="background:${c}">Day ${d.n}</span>${d.date} · ${d.title}</h3>
+    <div class="stats">
+      <div><b>${w.km} km</b><span>distance</span></div>
+      <div><b>↑ ${w.up} m</b><span>climb</span></div>
+      <div><b>↓ ${w.down} m</b><span>descent</span></div>
+      <div><b>${d.est}</b><span>walking, est.</span></div>
+    </div>
+    ${profile(w.coords, c)}
+    <p>${d.text}</p>
+    <p class="muted">${d.doc}. Highest point ${w.max} m.</p>
+    <div class="warn">${d.warn}</div>
+  </div>`;
+}).join("");
+</script>
+</body>
+</html>
