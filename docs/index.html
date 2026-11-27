@@ -231,8 +231,8 @@ const map = L.map("map", { zoomControl: true, tap: true });
 const topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "© OpenStreetMap contributors, © OpenTopoMap (CC-BY-SA)" });
 const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap contributors" });
 const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18, attribution: "Imagery © Esri" });
-topo.addTo(map);
-L.control.layers({ "Topo": topo, "Street": osm, "Satellite": sat }, null, { position: "topright" }).addTo(map);
+sat.addTo(map);
+L.control.layers({ "Satellite": sat, "Topo": topo, "Street": osm }, null, { position: "topright" }).addTo(map);
 L.control.scale({ imperial: false }).addTo(map);
 
 const groups = {};
