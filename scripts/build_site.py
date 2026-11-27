@@ -31,6 +31,8 @@ POINTS = [
     # id, name, lat, lon, kind, note
     ("seatoun", "Seatoun (Car 1 leaves)", -41.3260, 174.8320, "town", "Tom K, Henry, Jonathan and Gils"),
     ("palmy", "Palmerston North (pick up Leo)", -40.3560, 175.6110, "town", "Car 2 collects Leo"),
+    ("napier", "Napier", -39.4928, 176.9120, "town", "Fuel, food and supplies; about 1 h 15 from Makahu Saddle. Option for Friday night."),
+    ("taupo", "Taupō", -38.6857, 176.0702, "town", "Nearest town to the Poronui start, on the Napier–Taupō road (SH5)."),
     ("makahu", "Makahu Saddle car park", -39.2869, 176.4078, "car", "Cars wait here all week. Merv collects us at 10:00 on Sat 12 Dec; Kate meets us here on Wed 16 Dec."),
     ("poronui", "Taharua road end, Poronui (Helisika hangar)", -38.9978, 176.2950, "start", "Start of the walk. Poled route through private Poronui Station: foot traffic only, no hunting, no dogs."),
     ("oamaru", "Oamaru Hut", -39.0763, 176.2649, "camp", "Night 1 (Sat 12 Dec). Grassy flats below the hut."),

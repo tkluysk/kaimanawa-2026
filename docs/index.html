@@ -66,6 +66,7 @@
   footer { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; color: var(--muted); font-size: .82rem; }
   img.dream { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
   .leaflet-popup-content { font-size: .92rem; }
+  .town-label { font-weight: 700; font-size: .9rem; background: rgba(255,255,255,.9); border: 0; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
   @media (max-width: 560px) {
     .facts { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -285,15 +286,20 @@ const icon = (kind) => {
     html: `<div style="width:26px;height:26px;border-radius:50%;background:${m[1]};color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4)">${m[0]}</div>` });
 };
 const markers = L.featureGroup().addTo(map);
-T.points.forEach(p => L.marker([p.lat, p.lon], { icon: icon(p.kind), title: p.name })
-  .bindPopup(`<b>${p.name}</b><br>${p.note}` + (p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">DOC page</a>` : "")).addTo(markers));
+T.points.forEach(p => {
+  const m = L.marker([p.lat, p.lon], { icon: icon(p.kind), title: p.name })
+    .bindPopup(`<b>${p.name}</b><br>${p.note}` + (p.url ? `<br><a href="${p.url}" target="_blank" rel="noopener">DOC page</a>` : "")).addTo(markers);
+  if (p.id === "napier" || p.id === "taupo") m.bindTooltip(p.name, { permanent: true, direction: "right", offset: [12, 0], className: "town-label" });
+});
+const townLL = T.points.filter(p => p.id === "napier" || p.id === "taupo").map(p => [p.lat, p.lon]);
 
 const walkBounds = L.featureGroup(DAYS.map(d => groups[d.id])).getBounds().pad(0.05);
-map.fitBounds(walkBounds);
+const areaBounds = L.latLngBounds(townLL).extend(walkBounds).pad(0.05);
+map.fitBounds(areaBounds);
 
 // zoom chips
 const chips = document.getElementById("chips");
-const views = [["Walk", () => walkBounds, null], ["Whole trip", () => L.featureGroup([groups.drive, markers]).getBounds().pad(0.05), null]]
+const views = [["Area", () => areaBounds, null], ["Walk", () => walkBounds, null], ["Whole trip", () => L.featureGroup([groups.drive, markers]).getBounds().pad(0.05), null]]
   .concat(DAYS.map(d => [`Day ${d.n}`, () => groups[d.id].getBounds().pad(0.15), d.color]))
   .concat([["Shuttle", () => groups.drive.getLayers()[1].getBounds().pad(0.1), "--merv"]]);
 views.forEach(([label, b, color], i) => {
