@@ -51,6 +51,37 @@ for p, e in zip(d2, ev):
 days = {"d1": thin(brouter("d1")), "d2": d2, "d3": thin(brouter("d3")),
         "d4": thin(brouter("d4")), "d5": thin(brouter("d5"))}
 
+# The legs above run hut to hut. The camps are past the huts (Tom, 28 Nov 2026):
+#   night 1: on the Oamaru River, about an hour past Oamaru Hut (~3.5 km up the valley);
+#   night 2: on the Ngaruroro, about 45 min past Boyd Hut (~2.6 km), on the flats past the ford.
+# Move those stretches from the start of the next day onto the end of the day before.
+CAMP1_KM, CAMP2_KM = 3.5, 2.6
+
+def cut(c, km):
+    d = 0.0
+    for i in range(1, len(c)):
+        d += hav(c[i-1], c[i])
+        if d >= km:
+            return i
+    return len(c) - 1
+
+i = cut(days["d2"], CAMP1_KM)
+days["d1"] = days["d1"] + days["d2"][1:i+1]
+days["d2"] = days["d2"][i:]
+i = cut(days["d3"], CAMP2_KM)
+seg = [p[:] for p in days["d3"][:i+1]]
+# Day 2 elevations (Open-Meteo) and day 3's (BRouter) disagree by tens of metres at Boyd Hut;
+# taper the difference out over the moved stretch so the day 2 profile has no false step.
+off = days["d2"][-1][2] - seg[0][2]
+lens = [0.0]
+for a, b in zip(seg, seg[1:]):
+    lens.append(lens[-1] + hav(a, b))
+for p, l in zip(seg, lens):
+    p[2] = round(p[2] + off * (1 - l / lens[-1]))
+days["d2"] = days["d2"] + seg[1:]
+days["d3"] = days["d3"][i:]
+print("camp 1", days["d1"][-1], "camp 2", days["d2"][-1])
+
 def stats(c):
     dist = sum(hav(a, b) for a, b in zip(c, c[1:]))
     # smooth elevation a little before summing climb, like BRouter's "filtered ascend"

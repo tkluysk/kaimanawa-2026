@@ -35,11 +35,13 @@ POINTS = [
     ("taupo", "Taupō", -38.6857, 176.0702, "town", "Nearest town to the Poronui start, on the Napier–Taupō road (SH5)."),
     ("makahu", "Makahu Saddle car park", -39.2869, 176.4078, "car", "Cars wait here all week. Merv collects us at 10:00 on Sat 12 Dec; Kate meets us here on Wed 16 Dec."),
     ("poronui", "Taharua road end, Poronui (Helisika hangar)", -38.9978, 176.2950, "start", "Start of the walk. Poled route through private Poronui Station: foot traffic only, no hunting, no dogs."),
-    ("oamaru", "Oamaru Hut", -39.0763, 176.2649, "camp", "Night 1 (Sat 12 Dec). Grassy flats below the hut."),
-    ("boyd", "Boyd Hut", -39.1545, 176.1694, "camp", "Night 2 (Sun 13 Dec). Serviced hut, 16 bunks."),
-    ("tussock", "Tussock Hut", -39.1656, 176.2153, "hut", "Lunch stop on day 3, after fording the Ngaruroro River."),
+    ("oamaru", "Oamaru Hut", -39.0763, 176.2649, "hut", "Day 1 passes here; the camp is about an hour further up the Oamaru River."),
+    ("camp1", "Camp 1: Oamaru River", -39.09318, 176.23712, "camp", "Night 1 (Sat 12 Dec). The best campsites, about an hour (3.5 km) past Oamaru Hut up the Oamaru River. Position approximate."),
+    ("boyd", "Boyd Hut", -39.1545, 176.1694, "hut", "Day 2 passes here: serviced hut, 16 bunks, airstrip. The camp is about 45 min further on."),
+    ("camp2", "Camp 2: Ngaruroro River", -39.17424, 176.17997, "camp", "Night 2 (Sun 13 Dec). A great spot on the Ngaruroro, about 45 min (2.6 km) past Boyd Hut, past the ford. Position approximate."),
+    ("tussock", "Tussock Hut", -39.1656, 176.2153, "hut", "Lunch or morning-tea stop on day 3, at the top of the climb from the Ngaruroro."),
     ("harkness", "Harkness Hut", -39.1955, 176.2392, "camp", "Night 3 (Mon 14 Dec). Wood stove, rain tank, long drop."),
-    ("venison", "Venison Tops Hut (Tira Lodge)", -39.2472, 176.3217, "camp", "Night 4 (Tue 15 Dec). On the edge of the Kaweka tops."),
+    ("venison", "Venison Tops Hut (Tira Lodge)", -39.2472, 176.3217, "camp", "Night 4 (Tue 15 Dec). On the edge of the Kaweka tops. DOC alert: broken water tap; a crew is due to fix it on 14 Dec. If it isn't fixed, take the tank lid off and reach in."),
     ("kawekaj", "Kaweka J, 1724 m", -39.2762, 176.3819, "peak", "Highest point of the trip; memorial cairn. Exposed tops."),
     ("tepuke", "Te Pukeohikarua (Te Puke) Hut", -39.1935, 176.2766, "hut", "Day 4 passes here after about 4 km: a good first break."),
     ("mangaturutu", "Mangaturutu Hut", -39.2192, 176.3299, "hut", "Other hut nearby (shelter option)."),
@@ -58,9 +60,9 @@ docs.mkdir(exist_ok=True)
 
 # GPX: one track per walking day, plus the waypoints, for offline phone apps.
 DAY_NAMES = {
-    "d1": "Day 1 Sat 12 Dec: Taharua road end to Oamaru Hut",
-    "d2": "Day 2 Sun 13 Dec: Oamaru Hut to Boyd Hut",
-    "d3": "Day 3 Mon 14 Dec: Boyd Hut to Tussock Hut to Harkness Hut",
+    "d1": "Day 1 Sat 12 Dec: Taharua road end past Oamaru Hut to camp on the Oamaru River",
+    "d2": "Day 2 Sun 13 Dec: Oamaru River camp past Boyd Hut to camp on the Ngaruroro",
+    "d3": "Day 3 Mon 14 Dec: Ngaruroro camp to Tussock Hut to Harkness Hut",
     "d4": "Day 4 Tue 15 Dec: Harkness Hut to Venison Tops Hut",
     "d5": "Day 5 Wed 16 Dec: Venison Tops Hut over Kaweka J to Makahu Saddle",
 }

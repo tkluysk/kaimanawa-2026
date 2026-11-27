@@ -3,16 +3,18 @@
 <metadata><name>Kaimanawa to Kaweka traverse, 12-16 Dec 2026</name></metadata>
 <wpt lat="-39.2869" lon="176.4078"><name>Makahu Saddle car park</name><desc>Cars wait here all week. Merv collects us at 10:00 on Sat 12 Dec; Kate meets us here on Wed 16 Dec.</desc></wpt>
 <wpt lat="-38.9978" lon="176.295"><name>Taharua road end, Poronui (Helisika hangar)</name><desc>Start of the walk. Poled route through private Poronui Station: foot traffic only, no hunting, no dogs.</desc></wpt>
-<wpt lat="-39.0763" lon="176.2649"><name>Oamaru Hut</name><desc>Night 1 (Sat 12 Dec). Grassy flats below the hut.</desc></wpt>
-<wpt lat="-39.1545" lon="176.1694"><name>Boyd Hut</name><desc>Night 2 (Sun 13 Dec). Serviced hut, 16 bunks.</desc></wpt>
-<wpt lat="-39.1656" lon="176.2153"><name>Tussock Hut</name><desc>Lunch stop on day 3, after fording the Ngaruroro River.</desc></wpt>
+<wpt lat="-39.0763" lon="176.2649"><name>Oamaru Hut</name><desc>Day 1 passes here; the camp is about an hour further up the Oamaru River.</desc></wpt>
+<wpt lat="-39.09318" lon="176.23712"><name>Camp 1: Oamaru River</name><desc>Night 1 (Sat 12 Dec). The best campsites, about an hour (3.5 km) past Oamaru Hut up the Oamaru River. Position approximate.</desc></wpt>
+<wpt lat="-39.1545" lon="176.1694"><name>Boyd Hut</name><desc>Day 2 passes here: serviced hut, 16 bunks, airstrip. The camp is about 45 min further on.</desc></wpt>
+<wpt lat="-39.17424" lon="176.17997"><name>Camp 2: Ngaruroro River</name><desc>Night 2 (Sun 13 Dec). A great spot on the Ngaruroro, about 45 min (2.6 km) past Boyd Hut, past the ford. Position approximate.</desc></wpt>
+<wpt lat="-39.1656" lon="176.2153"><name>Tussock Hut</name><desc>Lunch or morning-tea stop on day 3, at the top of the climb from the Ngaruroro.</desc></wpt>
 <wpt lat="-39.1955" lon="176.2392"><name>Harkness Hut</name><desc>Night 3 (Mon 14 Dec). Wood stove, rain tank, long drop.</desc></wpt>
-<wpt lat="-39.2472" lon="176.3217"><name>Venison Tops Hut (Tira Lodge)</name><desc>Night 4 (Tue 15 Dec). On the edge of the Kaweka tops.</desc></wpt>
+<wpt lat="-39.2472" lon="176.3217"><name>Venison Tops Hut (Tira Lodge)</name><desc>Night 4 (Tue 15 Dec). On the edge of the Kaweka tops. DOC alert: broken water tap; a crew is due to fix it on 14 Dec. If it isn't fixed, take the tank lid off and reach in.</desc></wpt>
 <wpt lat="-39.2762" lon="176.3819"><name>Kaweka J, 1724 m</name><desc>Highest point of the trip; memorial cairn. Exposed tops.</desc></wpt>
 <wpt lat="-39.1935" lon="176.2766"><name>Te Pukeohikarua (Te Puke) Hut</name><desc>Day 4 passes here after about 4 km: a good first break.</desc></wpt>
 <wpt lat="-39.2192" lon="176.3299"><name>Mangaturutu Hut</name><desc>Other hut nearby (shelter option).</desc></wpt>
 <wpt lat="-39.238" lon="176.3698"><name>Ballard Hut</name><desc>Other hut nearby (shelter option).</desc></wpt>
-<trk><name>Day 1 Sat 12 Dec: Taharua road end to Oamaru Hut</name><trkseg>
+<trk><name>Day 1 Sat 12 Dec: Taharua road end past Oamaru Hut to camp on the Oamaru River</name><trkseg>
 <trkpt lat="-38.9978" lon="176.29492"><ele>706</ele></trkpt>
 <trkpt lat="-38.99815" lon="176.29505"><ele>707</ele></trkpt>
 <trkpt lat="-38.99832" lon="176.29547"><ele>708</ele></trkpt>
@@ -192,9 +194,6 @@
 <trkpt lat="-39.07543" lon="176.26485"><ele>635</ele></trkpt>
 <trkpt lat="-39.07592" lon="176.26506"><ele>634</ele></trkpt>
 <trkpt lat="-39.07625" lon="176.26491"><ele>633</ele></trkpt>
-</trkseg></trk>
-<trk><name>Day 2 Sun 13 Dec: Oamaru Hut to Boyd Hut</name><trkseg>
-<trkpt lat="-39.0763" lon="176.2649"><ele>635</ele></trkpt>
 <trkpt lat="-39.07543" lon="176.26485"><ele>635</ele></trkpt>
 <trkpt lat="-39.07592" lon="176.26506"><ele>634</ele></trkpt>
 <trkpt lat="-39.07635" lon="176.26472"><ele>634</ele></trkpt>
@@ -273,6 +272,9 @@
 <trkpt lat="-39.0929" lon="176.23876"><ele>679</ele></trkpt>
 <trkpt lat="-39.09284" lon="176.23807"><ele>680</ele></trkpt>
 <trkpt lat="-39.09299" lon="176.23754"><ele>681</ele></trkpt>
+<trkpt lat="-39.09318" lon="176.23712"><ele>681</ele></trkpt>
+</trkseg></trk>
+<trk><name>Day 2 Sun 13 Dec: Oamaru River camp past Boyd Hut to camp on the Ngaruroro</name><trkseg>
 <trkpt lat="-39.09318" lon="176.23712"><ele>681</ele></trkpt>
 <trkpt lat="-39.093" lon="176.23671"><ele>684</ele></trkpt>
 <trkpt lat="-39.09283" lon="176.23629"><ele>687</ele></trkpt>
@@ -503,38 +505,38 @@
 <trkpt lat="-39.15051" lon="176.17596"><ele>961</ele></trkpt>
 <trkpt lat="-39.15072" lon="176.17555"><ele>965</ele></trkpt>
 <trkpt lat="-39.1545" lon="176.1694"><ele>970</ele></trkpt>
+<trkpt lat="-39.15492" lon="176.16986"><ele>955</ele></trkpt>
+<trkpt lat="-39.15531" lon="176.1704"><ele>943</ele></trkpt>
+<trkpt lat="-39.15584" lon="176.17106"><ele>926</ele></trkpt>
+<trkpt lat="-39.15608" lon="176.17143"><ele>922</ele></trkpt>
+<trkpt lat="-39.15628" lon="176.17202"><ele>919</ele></trkpt>
+<trkpt lat="-39.15646" lon="176.17243"><ele>915</ele></trkpt>
+<trkpt lat="-39.15727" lon="176.17289"><ele>909</ele></trkpt>
+<trkpt lat="-39.15872" lon="176.17239"><ele>916</ele></trkpt>
+<trkpt lat="-39.15906" lon="176.17283"><ele>919</ele></trkpt>
+<trkpt lat="-39.15956" lon="176.17338"><ele>919</ele></trkpt>
+<trkpt lat="-39.16032" lon="176.17368"><ele>920</ele></trkpt>
+<trkpt lat="-39.16095" lon="176.17338"><ele>929</ele></trkpt>
+<trkpt lat="-39.16208" lon="176.17397"><ele>928</ele></trkpt>
+<trkpt lat="-39.16332" lon="176.17419"><ele>930</ele></trkpt>
+<trkpt lat="-39.16391" lon="176.17412"><ele>931</ele></trkpt>
+<trkpt lat="-39.16593" lon="176.17599"><ele>940</ele></trkpt>
+<trkpt lat="-39.16644" lon="176.17635"><ele>941</ele></trkpt>
+<trkpt lat="-39.16674" lon="176.17665"><ele>942</ele></trkpt>
+<trkpt lat="-39.16703" lon="176.17701"><ele>939</ele></trkpt>
+<trkpt lat="-39.16757" lon="176.1778"><ele>930</ele></trkpt>
+<trkpt lat="-39.16848" lon="176.17928"><ele>919</ele></trkpt>
+<trkpt lat="-39.16906" lon="176.17928"><ele>921</ele></trkpt>
+<trkpt lat="-39.16954" lon="176.17962"><ele>922</ele></trkpt>
+<trkpt lat="-39.17031" lon="176.1797"><ele>923</ele></trkpt>
+<trkpt lat="-39.17096" lon="176.17944"><ele>925</ele></trkpt>
+<trkpt lat="-39.17133" lon="176.17901"><ele>926</ele></trkpt>
+<trkpt lat="-39.17175" lon="176.17856"><ele>926</ele></trkpt>
+<trkpt lat="-39.17265" lon="176.17866"><ele>930</ele></trkpt>
+<trkpt lat="-39.17363" lon="176.17928"><ele>935</ele></trkpt>
+<trkpt lat="-39.17424" lon="176.17997"><ele>936</ele></trkpt>
 </trkseg></trk>
-<trk><name>Day 3 Mon 14 Dec: Boyd Hut to Tussock Hut to Harkness Hut</name><trkseg>
-<trkpt lat="-39.15449" lon="176.16947"><ele>1048</ele></trkpt>
-<trkpt lat="-39.15492" lon="176.16986"><ele>1031</ele></trkpt>
-<trkpt lat="-39.15531" lon="176.1704"><ele>1017</ele></trkpt>
-<trkpt lat="-39.15584" lon="176.17106"><ele>998</ele></trkpt>
-<trkpt lat="-39.15608" lon="176.17143"><ele>993</ele></trkpt>
-<trkpt lat="-39.15628" lon="176.17202"><ele>988</ele></trkpt>
-<trkpt lat="-39.15646" lon="176.17243"><ele>983</ele></trkpt>
-<trkpt lat="-39.15727" lon="176.17289"><ele>974</ele></trkpt>
-<trkpt lat="-39.15872" lon="176.17239"><ele>976</ele></trkpt>
-<trkpt lat="-39.15906" lon="176.17283"><ele>977</ele></trkpt>
-<trkpt lat="-39.15956" lon="176.17338"><ele>975</ele></trkpt>
-<trkpt lat="-39.16032" lon="176.17368"><ele>974</ele></trkpt>
-<trkpt lat="-39.16095" lon="176.17338"><ele>980</ele></trkpt>
-<trkpt lat="-39.16208" lon="176.17397"><ele>975</ele></trkpt>
-<trkpt lat="-39.16332" lon="176.17419"><ele>973</ele></trkpt>
-<trkpt lat="-39.16391" lon="176.17412"><ele>972</ele></trkpt>
-<trkpt lat="-39.16593" lon="176.17599"><ele>973</ele></trkpt>
-<trkpt lat="-39.16644" lon="176.17635"><ele>972</ele></trkpt>
-<trkpt lat="-39.16674" lon="176.17665"><ele>972</ele></trkpt>
-<trkpt lat="-39.16703" lon="176.17701"><ele>968</ele></trkpt>
-<trkpt lat="-39.16757" lon="176.1778"><ele>956</ele></trkpt>
-<trkpt lat="-39.16848" lon="176.17928"><ele>940</ele></trkpt>
-<trkpt lat="-39.16906" lon="176.17928"><ele>940</ele></trkpt>
-<trkpt lat="-39.16954" lon="176.17962"><ele>939</ele></trkpt>
-<trkpt lat="-39.17031" lon="176.1797"><ele>938</ele></trkpt>
-<trkpt lat="-39.17096" lon="176.17944"><ele>938</ele></trkpt>
-<trkpt lat="-39.17133" lon="176.17901"><ele>937</ele></trkpt>
-<trkpt lat="-39.17175" lon="176.17856"><ele>935</ele></trkpt>
-<trkpt lat="-39.17265" lon="176.17866"><ele>936</ele></trkpt>
-<trkpt lat="-39.17363" lon="176.17928"><ele>938</ele></trkpt>
+<trk><name>Day 3 Mon 14 Dec: Ngaruroro camp to Tussock Hut to Harkness Hut</name><trkseg>
 <trkpt lat="-39.17424" lon="176.17997"><ele>936</ele></trkpt>
 <trkpt lat="-39.17459" lon="176.18067"><ele>939</ele></trkpt>
 <trkpt lat="-39.1749" lon="176.18103"><ele>935</ele></trkpt>

@@ -155,8 +155,15 @@
       <li><span class="pill">open</span> <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-stay/stay-in-a-hut/booking-and-paying/backcountry-hut-tickets/">Hut passes</a>: Tom N to buy for everyone, 2 nights. $15 per adult and $7.50 per youth (5 to 17) per night.</li>
       <li><span class="pill">open</span> Wellington crew: drive up Friday night or leave at 3:30 am Saturday?</li>
       <li><span class="pill">open</span> Tell Kate the expected finish: Makahu Saddle around 13:30 to 15:00 on Wed 16 Dec.</li>
-      <li><span class="pill">open</span> Check the forecast and river levels in the last few days (Mohaka, Oamaru, Ngaruroro crossings, and wind on the Kaweka tops).</li>
-      <li><span class="pill">open</span> Gear: tents, stoves and fuel for 4 nights, PLB, paper maps, gaiters for the Ngaawapurua scrub.</li>
+      <li><span class="pill">open</span> Check the forecast and river levels in the last few days: <a href="https://flowrate.co.nz/">FlowRate</a> for the Mohaka (Poronui Station) and Ngaruroro (Kuripapango), where over 20 cumecs is too high; and wind on the Kaweka tops.</li>
+      <li><span class="pill ok">in hand</span> Venison Tops Hut water tap is broken: DOC (called 28 Nov) has a crew due to fix it on 14 Dec. Fallback: lift the tank lid and reach in.</li>
+    </ul>
+    <h3 style="margin-top:12px">Gear to sort</h3>
+    <ul class="todo">
+      <li><span class="pill">to decide</span> <b>PLB</b>: Tom K has one. One covers a group that stays together; a second is worth having for 8 people, so a pair can go for help with one while the rest stay with whoever is hurt, and it covers one failing.</li>
+      <li><span class="pill">open</span> <b>Water filters</b>, one between two: they block up quickly out there. Tom K has 2, shared with Henry and Leo; the other five need about 3 more. Carry purification tablets as a backup.</li>
+      <li><span class="pill">urgent</span> <b>Tent for Leo</b>: Kate's tents are probably not up to it and too heavy. Borrow or hire a light 1–2 person tent, or find him room in someone else's.</li>
+      <li><span class="pill">open</span> Tents, stoves and fuel for 4 nights, paper maps, gaiters for the Ngaawapurua scrub.</li>
     </ul>
   </div>
 </section>
@@ -167,7 +174,8 @@
     <ul>
       <li><b>No phone coverage</b> for most of the trip. Carry a PLB, and leave the route and dates with someone at home.</li>
       <li><b>Poronui Station</b> is private land: walkers only, no hunting, no mountain bikes; stay on the poled route.</li>
-      <li><b>River crossings</b>: Oamaru/Kaipō on day 1, side streams on day 2, the Ngaruroro after Boyd Hut on day 3 (usually below knee deep, floods quickly after rain), repeated Ngaawapurua crossings on day 3. If a river is up, wait; don't cross.</li>
+      <li><b>River crossings</b>: Oamaru/Kaipō on day 1, side streams on day 2, the Ngaruroro just past Boyd Hut at the end of day 2 (usually below knee deep, floods quickly after rain), repeated Ngaawapurua crossings on day 3. If a river is up, wait; don't cross.</li>
+      <li><b>River levels</b>: watch <a href="https://flowrate.co.nz/">FlowRate</a> in the days before, for the <b>Mohaka at Poronui Station</b> and the <b>Ngaruroro at Kuripapango</b>. Rule of thumb: <b>over 20 cumecs is too high</b>. For comparison, on 28 Nov they were 2.9 and 7.5.</li>
       <li><b>Kaweka tops</b> (days 4 and 5) are exposed above the bushline. Don't cross in strong wind or poor visibility; huts at Venison Tops, Mangaturutu and Ballard are nearby for shelter.</li>
       <li>Hunters use these huts; wear something bright.</li>
     </ul>
@@ -184,7 +192,8 @@
     <p>
       <a href="https://www.windy.com/-39.276/176.382?-39.276,176.382,10">Windy forecast for Kaweka J</a> ·
       <a href="https://www.metservice.com/rural/regions/hawkes-bay">MetService rural forecast, Hawke's Bay</a> ·
-      <a href="https://www.metvuw.com/forecast/forecast1.php?type=rain&amp;region=nzni&amp;tim=162">MetVUW rain map</a>
+      <a href="https://www.metvuw.com/forecast/forecast1.php?type=rain&amp;region=nzni&amp;tim=162">MetVUW rain map</a> ·
+      <a href="https://flowrate.co.nz/">FlowRate river levels</a>
     </p>
   </div>
   <div class="card">
@@ -219,22 +228,22 @@ const DOCL = {
 };
 const docLinks = ids => ids.map(i => `<a href="${DOCL[i][1]}">${DOCL[i][0]}</a>`).join(" · ");
 const DAYS = [
-  { id: "d1", n: 1, date: "Sat 12 Dec", title: "Taharua road end → Oamaru Hut", color: "--d1", docs: ["track", "oamaru", "kai"], est: "4–4.5 h", doc: "DOC: 4 h, 12 km",
-    plan: [["13:15", "Start walking from the Helisika hangar car park"], ["17:30", "Camp on the grassy flats below Oamaru Hut"]],
-    text: "Flat and easy. A poled route across Poronui Station farmland and gravel tracks to the Mohaka River, then a newer track to Oamaru Hut with one crossing of the Kaipō/Oamaru River just before the hut. Lots of side tracks on the station: follow the DOC poles.",
+  { id: "d1", n: 1, date: "Sat 12 Dec", title: "Taharua road end → Oamaru Hut → Oamaru River camp", color: "--d1", docs: ["track", "oamaru", "kai"], est: "5–5.5 h", doc: "DOC: 4 h, 12 km to Oamaru Hut; then about 1 h up the valley",
+    plan: [["13:15", "Start walking from the Helisika hangar car park"], ["17:15", "Pass Oamaru Hut"], ["18:30", "Camp on the Oamaru River (the best campsites), about an hour past the hut"]],
+    text: "Flat and easy, but long after the early start. A poled route across Poronui Station farmland and gravel tracks to the Mohaka River, then a newer track to Oamaru Hut with one crossing of the Kaipō/Oamaru River just before the hut. Lots of side tracks on the station: follow the DOC poles. From the hut, carry on about an hour up the Oamaru valley to the camp.",
     warn: "River crossing just before the hut: fine at normal flow, don't cross if it's up." },
-  { id: "d2", n: 2, date: "Sun 13 Dec", title: "Oamaru Hut → Boyd Hut", color: "--d2", docs: ["oamaru", "boyd", "track"], est: "5–6 h", doc: "DOC: 4–6 h, 16 km",
-    plan: [["08:30", "Pack up and leave Oamaru Hut"], ["11:30", "Lunch on the Oamaru flats"], ["14:00", "Arrive at Boyd Hut, set up camp"]],
-    text: "Up the Oamaru valley on poled river flats, then over the low saddle into the Ngaruroro headwaters to Boyd Hut (16 bunks, airstrip). Grass on the flats can be head high, which makes the poles hard to spot.",
-    warn: "Several side streams; elevation numbers for this day come from a coarse terrain model and are approximate." },
-  { id: "d3", n: 3, date: "Mon 14 Dec", title: "Boyd Hut → Tussock Hut → Harkness Hut", color: "--d3", docs: ["boyd", "tussock", "harkness", "kaw"], est: "5–6 h", doc: "DOC: Boyd to Tussock 3 h, Tussock to Harkness 2–3 h",
-    plan: [["08:30", "Leave Boyd Hut; ford the Ngaruroro River"], ["11:30", "Lunch at Tussock Hut"], ["14:00", "Arrive at Harkness Hut, set up camp"]],
-    text: "Ford the Ngaruroro early, climb about 300 m onto tussock country to Tussock Hut, then down the Ngaawapurua Stream to Harkness Hut. That stretch crosses the stream many times through scrub; gaiters help.",
-    warn: "Ngaruroro ford: usually below knee deep, but it floods quickly after rain." },
+  { id: "d2", n: 2, date: "Sun 13 Dec", title: "Oamaru River camp → Boyd Hut → Ngaruroro camp", color: "--d2", docs: ["oamaru", "boyd", "track"], est: "5–6 h", doc: "DOC: Oamaru Hut to Boyd Hut 4–6 h, 16 km; we start an hour in and finish 45 min past Boyd",
+    plan: [["08:30", "Pack up and leave camp"], ["11:30", "Lunch on the flats near the saddle"], ["13:30", "Boyd Hut: break, and look at the Ngaruroro"], ["14:15", "Ford the Ngaruroro; camp on the river, about 45 min past the hut"]],
+    text: "Up the rest of the Oamaru valley on poled river flats, then over the low saddle into the Ngaruroro headwaters to Boyd Hut (16 bunks, airstrip). Grass on the flats can be head high, which makes the poles hard to spot. From the hut the track towards Tussock Hut drops to the Ngaruroro and fords it about 2 km on; the camp is a great spot on the river about 45 min past Boyd.",
+    warn: "Ngaruroro ford near the end of the day: usually below knee deep, but it floods quickly after rain. If it's up, camp by Boyd Hut instead and cross in the morning. Elevations for this day come from a coarse terrain model and are approximate." },
+  { id: "d3", n: 3, date: "Mon 14 Dec", title: "Ngaruroro camp → Tussock Hut → Harkness Hut", color: "--d3", docs: ["boyd", "tussock", "harkness", "kaw"], est: "4–5 h", doc: "DOC: Boyd to Tussock 3 h (we start 45 min in), Tussock to Harkness 2–3 h",
+    plan: [["08:30", "Leave camp on the Ngaruroro"], ["10:45", "Tussock Hut: morning tea or early lunch"], ["13:15", "Arrive at Harkness Hut, set up camp"]],
+    text: "A shorter day. Climb about 300 m from the Ngaruroro onto tussock country to Tussock Hut, then down the Ngaawapurua Stream to Harkness Hut. That stretch crosses the stream many times through scrub; gaiters help.",
+    warn: "Repeated Ngaawapurua crossings: easy at normal flow, but don't push on if it's up after rain." },
   { id: "d4", n: 4, date: "Tue 15 Dec", title: "Harkness Hut → Venison Tops Hut", color: "--d4", docs: ["harkness", "tepuke", "venison"], est: "6–8 h", doc: "DOC gives up to 8 h between Harkness and Tira Lodge",
     plan: [["07:30", "Early start from Harkness Hut"], ["11:30", "Lunch on the climb"], ["15:00", "Arrive at Venison Tops Hut (Tira Lodge), set up camp"]],
     text: "The big climbing day: about 1,000 m up from the Ngaawapurua valley, past Te Pukeohikarua (Te Puke) Hut after about 4 km (DOC: 2.5–3 h from Harkness), then over the tops to Venison Tops Hut. Start early and keep the snacks coming.",
-    warn: "Longest climb of the trip. Last few hours are on open tops: check the weather before committing." },
+    warn: "Longest climb of the trip. Last few hours are on open tops: check the weather before committing.<br>DOC alert at Venison Tops Hut: the water tap is broken. A DOC crew is due to fix it on 14 Dec, the day before we arrive; if it isn't fixed, take the lid off the tank and reach in (and filter it)." },
   { id: "d5", n: 5, date: "Wed 16 Dec", title: "Venison Tops → Kaweka J → Makahu Saddle", color: "--d5", docs: ["venison", "dominie", "makahu", "kaw"], est: "6–7 h", doc: "DOC: Makahu Saddle to Tira Lodge 6.5–8 h (the other way, uphill)",
     plan: [["07:30", "Leave Venison Tops Hut"], ["12:00", "Kaweka J (1724 m), memorial cairn, lunch and photos"], ["14:00", "Down Makahu Spur (about 700 m in 3.5 km) to the car park: Kate and the cars"], ["14:30", "Drive home; Wellington around 20:30 to 21:30"]],
     text: "Along the Kaweka tops past North Kaweka to Kaweka J, the highest point in the range, then a long steep descent of about 1,200 m down Makahu Spur past Dominie Bivvy to Makahu Saddle.",
